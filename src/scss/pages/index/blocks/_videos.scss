@@ -1,0 +1,117 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.videos {
+  padding-block: 25px 50px;
+
+  // .videos__inner
+  &__inner {
+    padding: 40px;
+    background-color: variables.$color-f3faff;
+    border-radius: 10px;
+  }
+
+  // .videos__title
+  &__title {
+    margin-block-end: 30px;
+    font-size: 30px;
+    line-height: 1.2;
+    color: variables.$color-accent;
+  }
+
+  // .videos__content
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+}
+
+.videos-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  // .videos-list__item
+  &__item {
+    aspect-ratio: 250 / 380;
+    border-radius: 10px;
+
+    &:not([data-video="played"]) {
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        font-size: 0;
+        background-color: rgba($color: variables.$color-black, $alpha: 0.4);
+      }
+    }
+  }
+
+  // .videos-list__button
+  &__button {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 61px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    color: variables.$color-accent;
+    background-color: variables.$color-white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color, background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-white;
+      background-color: variables.$color-accent;
+    }
+
+    svg {
+      transform: translateX(3.5px);
+    }
+  }
+}
+
+.videos-info {
+  max-inline-size: 194px;
+  font-family: variables.$font-manrope;
+  letter-spacing: -0.02em;
+
+  > *:last-child {
+    margin-block-end: 0;
+  }
+
+  // .videos-info__image
+  &__image {
+    inline-size: 38.15px;
+    aspect-ratio: 38.15 / 46;
+    margin-block-end: 20px;
+    font-size: 0;
+  }
+
+  // .videos-info__label
+  &__label {
+    margin-block-end: 7px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    color: variables.$color-accent;
+  }
+
+  // .videos-info__text
+  &__text {
+    color: variables.$color-515151;
+  }
+}
