@@ -1,0 +1,181 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.header {
+  // .header__wrapper
+  &__wrapper {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    inline-size: 100%;
+    min-block-size: variables.$header-height;
+    padding-block: 5px;
+
+    .scrolled & {
+      background-color: variables.$color-white;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: background-color;
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-inline-start: 10px;
+
+  // .header-logo__inner
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+  }
+
+  // .header-logo__image
+  &__image {
+    flex: 0 0 auto;
+    inline-size: 45px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .header-logo__text
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+  }
+
+  // .header-logo__name
+  &__name {
+    font-family: variables.$font-montserrat;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: variables.$color-accent;
+  }
+
+  // .header-logo__caption
+  &__caption {
+    font-family: variables.$font-inter;
+    font-size: 8px;
+    line-height: 1.1;
+    color: variables.$color-8b8b8b;
+  }
+}
+
+.header-nav {
+  // .header-nav__inner
+  &__inner {
+  }
+
+  // .header-nav__list
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  // .header-nav__item
+  &__item {
+  }
+
+  // .header-nav__link
+  &__link {
+    font-size: 14px;
+    line-height: 1.2;
+    color: variables.$color-2e2e2e;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-accent;
+    }
+  }
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  // .header-buttons__item
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-block-size: 34px;
+    padding-block: 5px;
+    padding-inline: 34px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    color: variables.$color-white;
+    background-color: variables.$color-accent;
+    border-radius: 30px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color, background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-accent;
+      background-color: variables.$color-white;
+    }
+  }
+}
+
+.header-tel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-block-size: 36px;
+  padding-block: 5px;
+  padding-inline: 16.5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  color: variables.$color-accent;
+  background-color: variables.$color-white;
+  border-radius: 30px;
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color, background-color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-white;
+    background-color: variables.$color-accent;
+  }
+
+  // .header-tel__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+  }
+
+  // .header-tel__text
+  &__text {
+  }
+}
