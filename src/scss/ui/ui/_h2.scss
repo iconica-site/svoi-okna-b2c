@@ -4,7 +4,7 @@
 
 .h2 {
   font-size: 45px;
-  line-height: 1.1;
+  line-height: var(--h2-line-height, 1.1);
   color: var(--h2-color, #{variables.$color-2e2e2e});
 
   // .h2--white
