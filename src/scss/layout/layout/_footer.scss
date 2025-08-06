@@ -1,0 +1,73 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-block-size: 79px;
+  padding-block: 5px;
+
+  // .footer__link
+  &__link {
+    font-size: 14px;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+    color: variables.$color-515151;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-3d62eb;
+    }
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  // .footer-logo__image
+  &__image {
+    flex: 0 0 auto;
+    inline-size: 65px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .footer-logo__text
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .footer-logo__name
+  &__name {
+    font-family: variables.$font-montserrat;
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: variables.$color-accent;
+  }
+
+  // .footer-logo__caption
+  &__caption {
+    font-family: variables.$font-inter;
+    font-size: 10px;
+    line-height: 1.2;
+    color: variables.$color-8b8b8b;
+  }
+}
