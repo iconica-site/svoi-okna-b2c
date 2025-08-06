@@ -1,0 +1,129 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.contacts {
+  position: relative;
+  isolation: isolate;
+  padding-block: 48px 54px;
+}
+
+.contacts-address {
+  max-inline-size: 403px;
+  padding-block: 40px;
+  padding-inline: 40px 26px;
+  background-color: variables.$color-white;
+  border-radius: 10px;
+
+  > *:last-child {
+    margin-block-end: 0;
+  }
+
+  // .contacts-address__title
+  &__title {
+    --h2-line-height: 1.2;
+
+    margin-block-end: 31px;
+  }
+
+  // .contacts-address__links
+  &__links {
+    margin-block-end: 74px;
+  }
+
+  // .contacts-address__map
+  &__map {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    font-size: 0;
+  }
+}
+
+.contacts-links {
+  line-height: 1.2;
+
+  // .contacts-links__item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &:has(.contacts-links__link:nth-child(2)) {
+      align-items: start;
+      gap: 11px;
+    }
+
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+
+  // .contacts-links__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+    color: variables.$color-accent;
+
+    .contacts-links__item:has(.contacts-links__link:nth-child(2)) & {
+      display: flex;
+      align-items: center;
+      block-size: 1lh;
+      font-size: 16px;
+    }
+  }
+
+  // .contacts-links__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+
+  // .contacts-links__link
+  &__link {
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-accent;
+    }
+  }
+}
+
+.contacts-socials {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  // .contacts-socials__item
+  &__item {
+    flex: 0 0 auto;
+  }
+
+  // .contacts-socials__link
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 40px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    color: variables.$color-accent;
+    background-color: variables.$color-f3faff;
+    border-radius: 50%;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color, background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-white;
+      background-color: variables.$color-accent;
+    }
+  }
+}
