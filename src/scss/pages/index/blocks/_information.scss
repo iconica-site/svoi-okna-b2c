@@ -1,0 +1,51 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-block: 25px 50px;
+}
+
+.information-card {
+  display: flex;
+  flex-direction: column;
+
+  // .information-card--reversed
+  &--reversed {
+    flex-direction: column-reverse;
+  }
+
+  // .information-card__image
+  &__image {
+    flex: 0 0 auto;
+    aspect-ratio: 510 / 145;
+    padding: 10px;
+    font-size: 0;
+    border-radius: 10px;
+  }
+
+  // .information-card__icon
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 39px;
+    aspect-ratio: 1 / 1;
+    margin-inline-start: auto;
+    font-size: 0;
+    color: variables.$color-accent;
+    background-color: variables.$color-white;
+    border-radius: 5px;
+  }
+
+  // .information-card__text
+  &__text {
+    padding-block: 20px;
+    padding-inline: 40px;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
