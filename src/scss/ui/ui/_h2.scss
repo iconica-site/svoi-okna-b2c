@@ -3,10 +3,9 @@
 @use "../../variables/variables";
 
 .h2 {
-  font-weight: 800;
   font-size: 45px;
-  line-height: 1.2;
-  color: var(--h2-color, #{variables.$color-404040});
+  line-height: 1.1;
+  color: var(--h2-color, #{variables.$color-2e2e2e});
 
   // .h2--white
   &--white {
@@ -15,6 +14,6 @@
 
   // .h2__mark
   &__mark {
-    color: variables.$color-hover;
+    color: variables.$color-accent;
   }
 }

@@ -1,0 +1,134 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.glazing {
+  display: grid;
+  grid-template-columns: calc(350 / 503.5 * 1fr) calc(657 / 503.5 * 1fr);
+  align-items: center;
+  gap: 53px;
+  padding-block: 50px 30px;
+  background-color: variables.$color-fafcfe;
+
+  // .glazing__content
+  &__content {
+  }
+
+  // .glazing__title
+  &__title {
+    margin-block-end: 20px;
+  }
+
+  // .glazing__text
+  &__text {
+    margin-block-end: 30px;
+    font-size: 20px;
+
+    b {
+      font-weight: 600;
+    }
+  }
+
+  // .glazing__information
+  &__information {
+    margin-block-end: 30px;
+  }
+
+  // .glazing__row
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-inline-size: 527px;
+  }
+
+  // .glazing__button
+  &__button {
+    --button-width: 259px;
+  }
+}
+
+.glazing-slider {
+  aspect-ratio: 350 / 466;
+  border-radius: 10px;
+
+  // .glazing-slider__wrapper
+  &__wrapper {
+  }
+
+  // .glazing-slider__slide
+  &__slide {
+    font-size: 0;
+    border-radius: 10px;
+  }
+
+  // .glazing-slider__arrows
+  &__arrows {
+    position: absolute;
+    inset-block-end: 13px;
+    inset-inline-start: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+
+.glazing-information {
+  // .glazing-information__item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin-block-end: 18px;
+    }
+
+    &::before {
+      content: "";
+      flex: 0 0 auto;
+      inline-size: 6px;
+      aspect-ratio: 1 / 1;
+      font-size: 0;
+      background-color: variables.$color-accent;
+      border-radius: 50%;
+    }
+
+    b {
+      font-weight: 600;
+    }
+  }
+}
+
+.glazing-present {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  min-block-size: 50px;
+  padding-inline: 22px;
+  font-size: 14px;
+  color: variables.$color-2e2e2e;
+  background-color: variables.$color-white;
+  border: 1px solid variables.$color-d8dffb;
+  border-radius: 30px;
+
+  // .glazing-present__image
+  &__image {
+    flex: 0 0 auto;
+    inline-size: 52px;
+    aspect-ratio: 52 / 50;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .glazing-present__text
+  &__text {
+    mark {
+      color: variables.$color-accent;
+    }
+  }
+}
