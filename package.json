@@ -25,9 +25,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/javidgulmaliyev/svoi-okna-b2c.git"
+    "url": "https://github.com/iconica-site/svoi-okna-b2c.git"
   },
-  "homepage": "https://javidgulmaliyev.github.io/svoi-okna-b2c",
+  "homepage": "https://iconica-site.github.io/svoi-okna-b2c",
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
